@@ -1,0 +1,12 @@
+DROP TABLE Payment_Method_Table,
+DROP TABLE Payment_Info_Table,
+DROP TABLE contact_info_Table,
+DROP TABLE MEMBERS_GYM_Table,
+DROP TABLE Members_Table,
+DROP TABLE GYM_Table,
+DROP TABLE Supplier_Table,
+DROP TABLE Health_Official_Table,
+DROP TABLE Handyman_Table,
+DROP TABLE Status_Table,
+DROP TABLE Managers_Table,
+DROP TABLE Employee_Table

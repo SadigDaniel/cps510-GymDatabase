@@ -1,0 +1,81 @@
+INSERT ALL
+INTO Employee_Table VALUES(10,'FT1', 'Manager')
+INTO Employee_Table Values(13, 'PT2', 'Worker')
+INTO Employee_Table VALUES(12, 'PT1', 'Manager')
+INTO Employee_Table VALUES(11,'FT2', 'Worker')
+SELECT 1 FROM DUAL;
+INSERT ALL
+INTO Managers_Table VALUES(null,10)
+INTO Managers_Table Values(null, 12)
+INTO Managers_Table VALUES(null,11)
+INTO Managers_Table Values(null, 13)
+SELECT 1 FROM DUAL;
+update Managers_Table
+set managed_by = 10
+where employee_id = 13;
+update Managers_Table
+set managed_by = 12
+where employee_id = 11;
+insert all
+into status_Table  values ('FT1',37.5,675.00)
+into status_Table  values ('FT2',37.5,525.00)
+into status_Table values ('PT1',19,342.00)
+into status_Table values ('PT2',19,266.00)
+SELECT 1 FROM DUAL;
+Insert all
+INTO Handyman_Table VALUES(1,'Smith','CompA','416-411-1111','10M')
+INTO Handyman_Table VALUES(2,'Juan','CompA','416-411-1112','8M')
+INTO Handyman_Table VALUES(3,'Ladin','CompB','416-411-1113','5M')
+INTO Handyman_Table VALUES(4,'Senior','Tigerx','416-411-1131','No-Cont')
+INTO Handyman_Table Values(5,'Lopez','CompB','416-411-1141','12M')
+SELECT 1 FROM DUAL;
+Insert all
+INTO Health_Official_Table  VALUES(21,'Wash','COVID','647-411-1111','DAN')
+INTO Health_Official_Table  VALUES(22,'WaxOn','Toilet','647-411-1112','WALEED')
+INTO Health_Official_Table  VALUES(23,'WaxOff','COVID','647-411-1113','Jose')
+SELECT 1 FROM DUAL;
+insert all
+into Supplier_Table values (31,'prod A','Josh','Bench')
+into Supplier_Table values(32, 'prod B', 'John', 'DB')
+into Supplier_Table values(33, 'prod C', 'Nick', 'BB')
+into Supplier_Table values(34, 'prod A', 'Josh', 'Leg press')
+select 1 from dual;
+INSERT ALL
+into GYM_Table values('AD1', 10, 'Pool', 24, 1, 21, 34)
+into GYM_Table values('AD2', 12, 'Basketball', 14, 2, 22, 31)
+SELECT 1 FROM DUAL;
+INSERT ALL
+into Members_Table values(41,'Gold', 'Y', 'N', 121.50) -- 'AD1')
+into Members_Table values(42,'Silver', 'N', 'N', 60.50)-- 'AD2')
+into Members_Table values(43,'Bronze', 'Y', 'Y', 65.00) --'AD1')
+into Members_Table values(44,'Silver', 'N', 'Y', 60.50) -- 'AD1')
+into Members_Table values(45,'Gold', 'Y', 'N', 121.50) -- 'AD2')
+SELECT 1 FROM DUAL;
+INSERT ALL
+INTO MEMBERS_GYM_Table VALUES(41, 'AD1')
+INTO MEMBERS_GYM_Table VALUES(42, 'AD2')
+INTO MEMBERS_GYM_Table VALUES(43, 'AD1')
+INTO MEMBERS_GYM_Table VALUES(44, 'AD1')
+INTO MEMBERS_GYM_Table VALUES(45, 'AD2')
+SELECT 1 FROM DUAL;
+Insert all
+into contact_info_Table values('Sadig', 'Daniel', 'Markham', 19, 180, 41)
+into contact_info_Table values('Malik', 'Waleed', 'Milton', 22, 178,42)
+into contact_info_Table values('Gill', 'Jason', 'Brampton', 20, 170, 43)
+into contact_info_Table values('James', 'LeBron', 'Toronto', 35, 185, 44)
+into contact_info_Table values('Curry', 'Steph', 'Scarborough', 30, 182, 45)
+SELECT 1 FROM DUAL;
+Insert all
+INTO Payment_Info_Table VALUES(41, 30,61)
+INTO Payment_Info_Table VALUES(42, 15,62)
+INTO Payment_Info_Table VALUES(43, 25,63)
+INTO Payment_Info_Table VALUES(44, 15,64)
+INTO Payment_Info_Table VALUES(45, 40,65)
+select 1 from dual;
+insert all
+into Payment_Method_Table values (61,'Debit')
+into Payment_Method_Table values(62, 'Credit')
+into Payment_Method_Table values(63,'Debit')
+into Payment_Method_Table values (64,'Cash')
+into Payment_Method_Table values (65,'Credit')
+select 1 from dual

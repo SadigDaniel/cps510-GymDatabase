@@ -1,0 +1,82 @@
+CREATE TABLE Employee_Table(
+    Employee_id int PRIMARY KEY,
+    Status VARCHAR(40) UNIQUE,
+    Pos VARCHAR(40) NOT NULL
+);
+CREATE TABLE Managers_Table(
+    Managed_by INT,
+    Employee_id int PRIMARY KEY,
+    FOREIGN KEY(Employee_id) REFERENCES Employee(Employee_id) ON DELETE SET NULL, 
+    FOREIGN KEY(Managed_by) REFERENCES Managers(Employee_id) ON DELETE SET NULL 
+);
+CREATE TABLE Status_Table(
+    Status VARCHAR(40) UNIQUE,
+    h_rs DOUBLE PRECISION NOT NULL,
+    Salary DOUBLE PRECISION NOT NULL,
+    FOREIGN KEY(Status) REFERENCES Employee(Status) ON DELETE SET NULL
+);
+CREATE TABLE Handyman_Table(
+    Handyman_id INT PRIMARY KEY,
+    L_name VARCHAR(40) NOT NULL,
+    Company VARCHAR(40),
+    Phone_num VARCHAR(40) UNIQUE,
+    Contract VARCHAR(40)
+);
+CREATE TABLE Health_Official_Table(
+    Oficial_id INT PRIMARY KEY,
+    Company VARCHAR(40),
+    Purpose VARCHAR(50),
+    Phone_num VARCHAR(13) UNIQUE,
+    L_name VARCHAR(40) NOT NULL
+);
+CREATE TABLE Supplier_Table(
+    Supply_num INT PRIMARY KEY, 
+    Manufacturer VARCHAR(40) NOT NULL,
+    Manager_nam VARCHAR(40),
+    Products VARCHAR(50)
+);
+CREATE TABLE GYM_Table(
+    Address VARCHAR(40) PRIMARY KEY,
+    mgr_id INT NOT NULL,
+    FOREIGN KEY(mgr_id) REFERENCES Employee(Employee_id) ON DELETE CASCADE,
+    Facilities VARCHAR(40),
+    O_hours INT,
+    handyman_id INT,
+    FOREIGN KEY(handyman_id) REFERENCES Handyman(Handyman_id) ON DELETE SET NULL,
+    health_id INT,
+    FOREIGN KEY(health_id) REFERENCES Health_Official(Oficial_id) ON DELETE SET NULL,
+    Supply_num INT,
+    FOREIGN KEY(Supply_num) REFERENCES Supplier(Supply_num) ON DELETE SET NULL
+);
+CREATE TABLE Members_Table(
+    membership_id INT PRIMARY KEY,
+    m_level VARCHAR(40) NOT NULL,
+    Trainer CHAR(1) NOT NULL, -- Y/N
+    classes CHAR(1) NOT NULL,
+    price DOUBLE PRECISION
+);
+CREATE TABLE Members_Gym_Table(
+    membership_id INT PRIMARY KEY,
+    Gym_Address VARCHAR(40),
+    FOREIGN KEY(Gym_Address) REFERENCES GYM(Address) ON DELETE CASCADE
+);
+CREATE TABLE Contact_Info_Table(
+    L_name VARCHAR(40) NOT NULL,
+    F_name VARCHAR(40),
+    mem_Address VARCHAR(40) PRIMARY KEY,
+    AGE INT,
+    HEIGHT DOUBLE PRECISION,
+    membership_id INT,
+    FOREIGN KEY(membership_id) REFERENCES Members(membership_id) ON DELETE CASCADE 
+);
+CREATE TABLE Payment_Info_Table(
+    membership_id INT,
+    FOREIGN KEY(membership_id) REFERENCES Members(membership_id) ON DELETE CASCADE,
+    monthly_fee DOUBLE PRECISION,
+    accountnumber INT PRIMARY KEY
+);
+CREATE TABLE Payment_Method_Table(
+    accountnumber INT PRIMARY KEY,
+    payment_method VARCHAR(40) NOT NULL,
+    FOREIGN KEY(accountnumber) REFERENCES Payment_Info(accountnumber) ON DELETE CASCADE
+)
